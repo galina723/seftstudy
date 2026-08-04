@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
     }));
 
 
-    const formattedQuizzes = quizzes.map((q) => ({
+    const formattedQuizzes = quizzes.map((q:any) => ({
       ...q,
       category: q.category.name,
       options: q.options.split(","),
