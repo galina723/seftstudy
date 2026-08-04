@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
     });
 
 
-    const formattedLessons = lessons.map((l) => ({
+    const formattedLessons = lessons.map((l:any) => ({
       ...l,
       category: l.category.name,
     }));
