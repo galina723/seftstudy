@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     if (!username || !password) {
       return NextResponse.json(
         { message: "Vui lòng nhập đầy đủ username và password." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     if (existingUser) {
       return NextResponse.json(
         { message: "Username đã tồn tại." },
-        { status: 409 }
+        { status: 409 },
       );
     }
 
@@ -43,14 +43,11 @@ export async function POST(req: NextRequest) {
         message: "Đăng ký thành công.",
         user,
       },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     console.error(error);
 
-    return NextResponse.json(
-      { message: "Lỗi server." },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Lỗi server." }, { status: 500 });
   }
 }
